@@ -1,0 +1,16 @@
+<%= link_to user_path(user), class: "users-card" do %>
+  <div class="card m-3">
+    <div class="card-header">
+      <%= user.id %> | <%= user.name %> |
+      <% if current_user.admin? %>
+        <%= link_to "delete", user_path(user), method: :delete %>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <%= gravatar_for user, size: 50 %>
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <div><%= user.email %></div>
+    </div>
+  </div>
+<% end %>
